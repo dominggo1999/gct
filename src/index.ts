@@ -61,10 +61,10 @@ inquirer
 
     // Get the URL of the selected template
     const url = repos[template];
-    const resolvePath = resolve(process.cwd(), destinationPath);
+    const resolvedPath = resolve(process.cwd(), destinationPath);
 
     // Clone the repository
-    simpleGit().clone(url, resolvePath, null, (error) => {
+    simpleGit().clone(url, resolvedPath, null, (error) => {
       if (error) {
         console.error("Error occurred while cloning the repository:", error);
       } else {
@@ -75,7 +75,7 @@ inquirer
           console.log("Installing all the dependencies");
 
           // cd into the cloned repository
-          process.chdir(resolvePath);
+          process.chdir(resolvedPath);
 
           const packageManagerCommand = packageManagers[packageManager];
 
