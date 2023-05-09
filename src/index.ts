@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import inquirer, { QuestionCollection } from "inquirer";
+import inquirer, { type QuestionCollection } from "inquirer";
 import simpleGit from "simple-git";
 import { resolve } from "path";
 import { exec } from "child_process";
@@ -29,7 +29,7 @@ export const packageManagers = {
   none: "",
 };
 
-const createPrompts = (
+export const createPrompts = (
   repos: Record<string, string>,
   packageManagers: Record<string, string>,
 ): QuestionCollection => {
@@ -62,7 +62,10 @@ const createPrompts = (
   ];
 };
 
-export const cloneRepository = async (answers: Answers) => {
+export const cloneRepository = async (
+  answers: Answers,
+  repos: Record<string, string>,
+) => {
   const { destinationPath, template, packageManager, autoInstall } = answers;
 
   // Get the URL of the selected template
@@ -108,13 +111,17 @@ export const installDependencies = (
   });
 };
 
-export const promptUser = async (prompts: QuestionCollection) => {
+const promptUser = async () => {
   try {
-    const answers = await inquirer.prompt(prompts);
-    await cloneRepository(answers as Answers);
+    const answers = await inquirer.prompt(
+      createPrompts(repos, packageManagers),
+    );
+
+    console.log(answers);
+    await cloneRepository(answers as Answers, repos);
   } catch (error) {
     console.error("An error occurred:", error);
   }
 };
 
-promptUser(createPrompts(repos, packageManagers));
+promptUser();

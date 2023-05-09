@@ -25,5 +25,11 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "test/**/*", "vitest.config.ts", "vite.config.ts"]
+  "include": [
+    "src/**/*",
+    "test/**/*",
+    "vitest.config.ts",
+    "vite.config.ts",
+    "__mocks__"
+  ]
 }
