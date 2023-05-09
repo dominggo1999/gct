@@ -19,8 +19,10 @@ This is a command-line tool that allows you to clone repositories from a predefi
 ## Build and Install
 
 1. Run the following command to build the package:
+
    `pnpm build`
 2. After the build is successful, run the following command to make the package available globally:
+
    `npm install -g`
 
 ## Usage
