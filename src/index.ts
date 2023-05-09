@@ -70,14 +70,14 @@ inquirer
       } else {
         console.log("Repository cloned successfully!");
 
-        const packageManagerCommand = packageManagers[packageManager];
-
         // If autoInstall is true, install dependencies
-        if (autoInstall && packageManagerCommand !== "none") {
+        if (autoInstall && packageManager !== "none") {
           console.log("Installing all the dependencies");
 
           // cd into the cloned repository
           process.chdir(resolvePath);
+
+          const packageManagerCommand = packageManagers[packageManager];
 
           exec(packageManagerCommand, (error) => {
             if (error) {
