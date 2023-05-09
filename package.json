@@ -21,7 +21,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite-node --watch src/main.ts",
+    "dev": "vite-node --watch src/index.ts",
     "start": "node dist/index.js",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
