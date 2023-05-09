@@ -66,10 +66,7 @@
     "node": "18.16.0"
   },
   "lint-staged": {
-    "apps/**/*.{js,ts,jsx,tsx}": [
-      "eslint --fix"
-    ],
-    "packages/**/*.{js,ts,jsx,tsx}": [
+    "**/*.{js,ts,jsx,tsx}": [
       "eslint --fix"
     ],
     "*.json": [
