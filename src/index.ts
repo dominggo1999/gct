@@ -4,6 +4,7 @@ import inquirer from "inquirer";
 import simpleGit from "simple-git";
 import { resolve } from "path";
 import { exec } from "child_process";
+import { createSpinner } from "nanospinner";
 
 const repos = {
   "t3-antd": "https://github.com/dominggo1999/turbo-t3-antd-template",
@@ -63,16 +64,22 @@ inquirer
     const url = repos[template];
     const resolvedPath = resolve(process.cwd(), destinationPath);
 
+    const sClone = createSpinner("Cloning the repository").start();
+
     // Clone the repository
     simpleGit().clone(url, resolvedPath, null, (error) => {
       if (error) {
+        sClone.error();
         console.error("Error occurred while cloning the repository:", error);
       } else {
+        sClone.success();
         console.log("Repository cloned successfully!");
 
         // If autoInstall is true, install dependencies
         if (autoInstall && packageManager !== "none") {
-          console.log("Installing all the dependencies");
+          const sInstall = createSpinner(
+            "Installing all the dependencies",
+          ).start();
 
           // cd into the cloned repository
           process.chdir(resolvedPath);
@@ -81,11 +88,13 @@ inquirer
 
           exec(packageManagerCommand, (error) => {
             if (error) {
+              sInstall.error();
               console.error(
                 "Error occurred while installing dependencies:",
                 error,
               );
             } else {
+              sInstall.success();
               console.log("Dependencies installed successfully!");
             }
           });
