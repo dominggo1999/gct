@@ -2,6 +2,8 @@
 
 This is a command-line tool that allows you to clone repositories from a predefined list and optionally install their dependencies using a chosen package manager.
 
+![Demo](/screenshots/demo.gif)
+
 ## Installation
 
 1. Make sure you have [Node.js](https://nodejs.org) installed on your system.
