@@ -29,33 +29,38 @@ export const packageManagers = {
   none: "",
 };
 
-export const prompts: QuestionCollection = [
-  {
-    type: "input",
-    name: "destinationPath",
-    message: "Enter the destination path:",
-    default: ".",
-  },
-  {
-    type: "list",
-    name: "template",
-    message: "Choose a repository template to clone:",
-    choices: Object.keys(repos),
-  },
-  {
-    type: "list",
-    name: "packageManager",
-    message: "Choose a package manager to install dependencies:",
-    choices: Object.keys(packageManagers),
-    default: "pnpm",
-  },
-  {
-    type: "confirm",
-    name: "autoInstall",
-    message: "Automatically install dependencies?",
-    default: true,
-  },
-];
+const createPrompts = (
+  repos: Record<string, string>,
+  packageManagers: Record<string, string>,
+): QuestionCollection => {
+  return [
+    {
+      type: "input",
+      name: "destinationPath",
+      message: "Enter the destination path:",
+      default: ".",
+    },
+    {
+      type: "list",
+      name: "template",
+      message: "Choose a repository template to clone:",
+      choices: Object.keys(repos),
+    },
+    {
+      type: "list",
+      name: "packageManager",
+      message: "Choose a package manager to install dependencies:",
+      choices: Object.keys(packageManagers),
+      default: "pnpm",
+    },
+    {
+      type: "confirm",
+      name: "autoInstall",
+      message: "Automatically install dependencies?",
+      default: true,
+    },
+  ];
+};
 
 export const cloneRepository = async (answers: Answers) => {
   const { destinationPath, template, packageManager, autoInstall } = answers;
@@ -112,4 +117,4 @@ export const promptUser = async (prompts: QuestionCollection) => {
   }
 };
 
-promptUser(prompts);
+promptUser(createPrompts(repos, packageManagers));
