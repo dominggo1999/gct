@@ -117,7 +117,6 @@ const promptUser = async () => {
       createPrompts(repos, packageManagers),
     );
 
-    console.log(answers);
     await cloneRepository(answers as Answers, repos);
   } catch (error) {
     console.error("An error occurred:", error);
