@@ -19,6 +19,7 @@ export const repos = {
   "turbo-expo-next": "https://github.com/dominggo1999/turbo-expo-next",
   node: "https://github.com/dominggo1999/node-typescript-boilerplate",
   "cypress-ts": "https://github.com/dominggo1999/cypress-ts-cucumber-template",
+  "turbo-next" : "https://github.com/dominggo1999/turbo-next-template" 
 };
 
 export const packageManagers = {
