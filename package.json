@@ -27,7 +27,6 @@
     "prebuild": "npm run lint",
     "build": "npm run clean && tsc -p tsconfig.release.json && vite build",
     "lint": "eslint . --ext .ts --ext .mts",
-    "prettier": "prettier --config .prettierrc --write .",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
     "pre-commit": "npx lint-staged",
     "test": "vitest",
