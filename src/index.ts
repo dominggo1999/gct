@@ -20,7 +20,8 @@ export const repos = {
     node: "https://github.com/dominggo1999/node-typescript-boilerplate",
     "cypress-ts": "https://github.com/dominggo1999/cypress-ts-cucumber-template",
     "turbo-next": "https://github.com/dominggo1999/turbo-next-template",
-    "turbo-next-trpc": "https://github.com/dominggo1999/turbo-next-trpc-template"
+    "turbo-next-trpc": "https://github.com/dominggo1999/turbo-next-trpc-template",
+    "sveltekit": "https://github.com/dominggo1999/sveltekit-template"
 };
 
 export const packageManagers = {
