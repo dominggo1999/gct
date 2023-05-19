@@ -18,10 +18,13 @@ export const repos = {
     t3: "https://github.com/dominggo1999/turbo-next-t3-template",
     "turbo-expo-next": "https://github.com/dominggo1999/turbo-expo-next",
     node: "https://github.com/dominggo1999/node-typescript-boilerplate",
-    "cypress-ts": "https://github.com/dominggo1999/cypress-ts-cucumber-template",
+    "cypress-ts":
+        "https://github.com/dominggo1999/cypress-ts-cucumber-template",
     "turbo-next": "https://github.com/dominggo1999/turbo-next-template",
-    "turbo-next-trpc": "https://github.com/dominggo1999/turbo-next-trpc-template",
-    "sveltekit": "https://github.com/dominggo1999/sveltekit-template"
+    "turbo-next-trpc":
+        "https://github.com/dominggo1999/turbo-next-trpc-template",
+    sveltekit: "https://github.com/dominggo1999/sveltekit-template",
+    vite: "https://github.com/dominggo1999/vite-template",
 };
 
 export const packageManagers = {
@@ -106,7 +109,10 @@ export const installDependencies = (
     exec(packageManagerCommand, (error) => {
         if (error) {
             sInstall.error();
-            console.error("Error occurred while installing dependencies:", error);
+            console.error(
+                "Error occurred while installing dependencies:",
+                error,
+            );
         } else {
             sInstall.success();
             console.log("Dependencies installed successfully!");
