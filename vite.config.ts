@@ -21,7 +21,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // If you are building a library, make sure to externalize deps, since we don't want to bundle them
-      external: [...builtinModules, "simple-git", "inquirer"],
+      external: [...builtinModules, "simple-git", "inquirer", "rome"],
     },
   },
   plugins: [
